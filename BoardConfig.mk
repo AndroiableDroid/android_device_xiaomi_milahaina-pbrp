@@ -148,15 +148,30 @@ TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_CRYPTO := true
 TW_NO_EXFAT_FUSE := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_FRAMERATE := 90
 TW_INCLUDE_RESETPROP := true
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.date.utc;ro.bootimage.build.date.utc=ro.build.date.utc;ro.odm.build.date.utc=ro.build.date.utc;ro.product.build.date.utc=ro.build.date.utc;ro.system.build.date.utc=ro.build.date.utc;ro.system_ext.build.date.utc=ro.build.date.utc;ro.vendor.build.date.utc=ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
-TW_LOAD_VENDOR_MODULES := "msm_drm.ko adsp_loader_dlkm.ko fts_touch_spi.ko focaltech_touch.ko hwid.ko qti_battery_charger_main.ko texfat.ko tntfs.ko xiaomi_touch.ko"
+BOARD_RECOVERY_KERNEL_MODULES := \
+	$(DEVICE_PATH)/prebuilt/msm_drm.ko \
+	$(DEVICE_PATH)/prebuilt/adsp_loader_dlkm.ko \
+	$(DEVICE_PATH)/prebuilt/fts_touch_spi.ko \
+	$(DEVICE_PATH)/prebuilt/focaltech_touch.ko \
+	$(DEVICE_PATH)/prebuilt/hwid.ko \
+	$(DEVICE_PATH)/prebuilt/qti_battery_charger_main.ko \
+	$(DEVICE_PATH)/prebuilt/xiaomi_touch.ko \
+	$(DEVICE_PATH)/prebuilt/apr_dlkm.ko \
+	$(DEVICE_PATH)/prebuilt/q6_notifier_dlkm.ko \
+	$(DEVICE_PATH)/prebuilt/q6_pdr_dlkm.ko \
+	$(DEVICE_PATH)/prebuilt/snd_event_dlkm.ko
+TW_LOAD_VENDOR_MODULES := "msm_drm.ko adsp_loader_dlkm.ko fts_touch_spi.ko focaltech_touch.ko hwid.ko qti_battery_charger_main.ko xiaomi_touch.ko apr_dlkm.ko q6_notifier_dlkm.ko q6_pdr_dlkm.ko snd_event_dlkm.ko"
+TW_BATTERY_SYSFS_WAIT_SECONDS := 6
 
 # TWRP Debug Flags
 #TWRP_EVENT_LOGGING := true
